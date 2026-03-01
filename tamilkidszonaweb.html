@@ -1,0 +1,239 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"></meta>
+  <meta content="width=device-width,initial-scale=1" name="viewport"></meta>
+  <title>Tamil Kidszona | Links</title>
+  <meta content="Tamil Kidszona - Official Social Links" name="description"></meta>
+
+  <style>
+    :root{
+      --bg:#000;
+      --white:#fff;
+      --muted: rgba(255,255,255,.72);
+      --ring: 4px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top, #0f0f0f 0%, var(--bg) 65%);
+      color: var(--white);
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      padding: 26px 14px 40px;
+    }
+
+    .wrap{width:min(980px,100%); text-align:center;}
+
+    /* Top big circle logo */
+    .brand{
+      width: 240px;
+      height: 240px;
+      margin: 14px auto 46px;
+      border-radius: 999px;
+      border: var(--ring) solid var(--white);
+      background: rgba(255,255,255,.02);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .brand img{
+      width:100%;
+      height:100%;
+      object-fit: contain;
+    }
+    .brandFallback{
+      font-weight: 900;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .brandFallback small{
+      display:block;
+      font-size: 16px;
+      margin-top: 10px;
+      letter-spacing: 1px;
+      opacity: .9;
+    }
+
+    /* 3 icons per row ALWAYS */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 34px;
+      justify-items:center;
+      align-items:start;
+      padding: 0;
+    }
+
+    .tile{
+      width: min(230px, 100%);
+      text-decoration:none;
+      color: var(--white);
+      display:block;
+      border-radius: 18px;
+      padding: 10px 8px;
+      transition: transform .15s ease, background .15s ease;
+      cursor:pointer;
+    }
+    .tile:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.04);
+    }
+
+    .circle{
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      border-radius: 999px;
+      border: var(--ring) solid var(--white);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+      font-size: 40px;
+      letter-spacing: 1px;
+    }
+    .circle img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .label{
+      margin-top: 12px;
+      font-weight: 900;
+      letter-spacing: .7px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .footer{
+      margin-top: 28px;
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+    }
+
+    /* Make circles smaller on mobile */
+    @media (max-width: 520px){
+      .brand{ width: 190px; height: 190px; margin-bottom: 28px; }
+      .circle{ width: 120px; height: 120px; }
+      .grid{ gap: 18px; }
+      .label{ font-size: 12px; }
+    }
+
+    /* Center last row if only 1 item */
+    .tile.centerOnly{
+      grid-column: 2 / 3; /* put in middle column */
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <!-- TOP LOGO -->
+    <div class="brand">
+      <!-- Put your logo file in same folder and name it: logo.png -->
+      <img alt="Tamil Kidszona Logo" onerror="this.remove(); this.parentElement.innerHTML=`&lt;div class='brandFallback'&gt;Tamil&lt;br&gt;Kidszona&lt;small&gt;Official&lt;/small&gt;&lt;/div&gt;`;" src="https://blogger.googleusercontent.com/img/a/AVvXsEhy4e7nfv_J-UxCjv-b8bY9ZOkH3x-0-_tPsfU3I06TdnbN6ZIXAVj9hSrkQ4cO3ZLmV1_sXu6HQKs2amjxLjtrj7ToBSTxHK4kIPnWzbo0B_VjOgMbJH42u0quQwE-gxxcXFclK88lgGB4NXmEX5gzMfVxAANbEO5KCMo333ViQY4PdYvDPabpIJW8-Bg=s16000" />
+    </div>
+
+    <!-- ICON GRID -->
+    <section class="grid">
+
+      <!-- TELEGRAM -->
+      <a class="tile" href="https://t.me/your_channel" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="Telegram" onerror="this.remove(); this.parentElement.textContent='TG';" src="https://blogger.googleusercontent.com/img/a/AVvXsEiQglpgfTOAzNUmTYovAV9038-x9elkCqOTsG1Zovpve20jCCGC7p2FuftAKBRyuMUzB4QuBs63h1BDY0y5_t-GGkCBLxur5bxZocfOrE2tMGzPZDm5BnhdP2odYCK-147wW5tp6gQPeyZ5iuUaLgwTe9YGL-m3JC3VWJxoRA-o1D1bJIakXVfmwXsGcls=s16000" />
+        </div>
+        <div class="label">Telegram Channel</div>
+      </a>
+
+      <!-- YOUTUBE -->
+      <a class="tile" href="https://youtube.com/@yourchannel" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="YouTube" onerror="this.remove(); this.parentElement.textContent='YT';" src="youtube.png" />
+        </div>
+        <div class="label">YouTube Channel</div>
+      </a>
+
+      <!-- INSTAGRAM -->
+      <a class="tile" href="https://instagram.com/yourpage" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="Instagram" onerror="this.remove(); this.parentElement.textContent='IG';" src="instagram.png" />
+        </div>
+        <div class="label">Instagram Page</div>
+      </a>
+
+      <!-- FACEBOOK -->
+      <a class="tile" href="https://facebook.com/yourpage" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="Facebook" onerror="this.remove(); this.parentElement.textContent='FB';" src="facebook.png" />
+        </div>
+        <div class="label">Facebook Page</div>
+      </a>
+
+      <!-- WHATSAPP -->
+      <a class="tile" href="https://wa.me/91XXXXXXXXXX" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="WhatsApp" onerror="this.remove(); this.parentElement.textContent='WA';" src="whatsapp.png" />
+        </div>
+        <div class="label">WhatsApp</div>
+      </a>
+
+      <!-- THREADS -->
+      <a class="tile" href="https://www.threads.net/@yourhandle" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="Threads" onerror="this.remove(); this.parentElement.textContent='TH';" src="threads.png" />
+        </div>
+        <div class="label">Threads</div>
+      </a>
+
+      <!-- SHARECHAT -->
+      <a class="tile" href="https://sharechat.com/profile/yourprofile" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="ShareChat" onerror="this.remove(); this.parentElement.textContent='SC';" src="sharechat.png" />
+        </div>
+        <div class="label">ShareChat</div>
+      </a>
+
+      <!-- PINTEREST -->
+      <a class="tile" href="https://pinterest.com/yourpage" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="Pinterest" onerror="this.remove(); this.parentElement.textContent='PT';" src="pinterest.png" />
+        </div>
+        <div class="label">Pinterest Page</div>
+      </a>
+
+      <!-- X / TWITTER -->
+      <a class="tile" href="https://x.com/yourhandle" rel="noopener" target="_blank">
+        <div class="circle">
+          <img alt="X" onerror="this.remove(); this.parentElement.textContent='X';" src="x.png" />
+        </div>
+        <div class="label">X (Twitter)</div>
+      </a>
+
+      <!-- MORE (NOW IN CENTER / REPLACES CONTACT) -->
+      <!-- Put your "all links" page or second page link here -->
+      <a class="tile centerOnly" href="https://example.com" rel="noopener" target="_blank">
+        <div class="circle">+</div>
+        <div class="label">More</div>
+      </a>
+
+    </section>
+
+    <div class="footer">© <span id="y"></span> Tamil Kidszona • All links in one place</div>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
