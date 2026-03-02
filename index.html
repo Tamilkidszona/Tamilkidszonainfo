@@ -1,7 +1,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"></meta>
-  <meta content="width=device-width,initial-scale=1" name="viewport"></meta>
+
+  <!-- ✅ Disable zoom in/out -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+
   <title>Tamil Kidszona | Links</title>
   <meta content="Tamil Kidszona - Official Social Links" name="description"></meta>
 
@@ -13,6 +16,13 @@
       --ring: 4px;
     }
     *{box-sizing:border-box}
+
+    /* ✅ stop double-tap zoom + pinch gestures (mobile) */
+    html, body{
+      touch-action: manipulation;
+      overscroll-behavior: none;
+    }
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -21,28 +31,29 @@
       min-height:100vh;
       display:flex;
       justify-content:center;
-      padding: 26px 14px 40px;
+      padding: 18px 14px 40px;  /* ✅ a bit less top padding */
     }
 
     .wrap{width:min(980px,100%); text-align:center;}
 
-    /* Top big circle logo */
-.brand{
-  width: 240px;
-  height: 240px;
-  margin: 14px auto 46px;
-  border-radius: 999px;
-  border: 4px solid #ffffff;   /* FORCE WHITE */
-  background: rgba(255,255,255,.02);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
+    /* ✅ TOP CENTER logo (always) */
+    .brand{
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 36px;   /* ✅ removed top extra space */
+      border-radius: 999px;
+      border: 4px solid #ffffff;
+      background: rgba(255,255,255,.02);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
     .brand img{
       width:100%;
       height:100%;
       object-fit: contain;
+      display:block;
     }
     .brandFallback{
       font-weight: 900;
@@ -85,19 +96,19 @@
     }
 
     .circle{
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  border-radius: 999px;
-  border: 4px solid #ffffff !important;   /* FORCE WHITE */
-  background: #000;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 40px;
-}
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      border-radius: 999px;
+      border: 4px solid #ffffff !important;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 40px;
+    }
     .circle img{
       width:100%;
       height:100%;
@@ -119,7 +130,6 @@
       color: rgba(255,255,255,.55);
     }
 
-    /* Make circles smaller on mobile */
     @media (max-width: 520px){
       .brand{ width: 190px; height: 190px; margin-bottom: 28px; }
       .circle{ width: 120px; height: 120px; }
@@ -127,9 +137,8 @@
       .label{ font-size: 12px; }
     }
 
-    /* Center last row if only 1 item */
     .tile.centerOnly{
-      grid-column: 2 / 3; /* put in middle column */
+      grid-column: 2 / 3;
     }
   </style>
 </head>
@@ -138,16 +147,18 @@
 
     <!-- TOP LOGO -->
     <div class="brand">
-      <!-- Put your logo file in same folder and name it: logo.png -->
-      <img alt="Tamil Kidszona Logo" onerror="this.remove(); this.parentElement.innerHTML=&lt;div class='brandFallback'&gt;Tamil&lt;br&gt;Kidszona&lt;small&gt;Official&lt;/small&gt;&lt;/div&gt;;" src="https://blogger.googleusercontent.com/img/a/AVvXsEhy4e7nfv_J-UxCjv-b8bY9ZOkH3x-0-_tPsfU3I06TdnbN6ZIXAVj9hSrkQ4cO3ZLmV1_sXu6HQKs2amjxLjtrj7ToBSTxHK4kIPnWzbo0B_VjOgMbJH42u0quQwE-gxxcXFclK88lgGB4NXmEX5gzMfVxAANbEO5KCMo333ViQY4PdYvDPabpIJW8-Bg=s16000" />
+      <img alt="Tamil Kidszona Logo"
+        onerror="this.remove(); this.parentElement.innerHTML=&lt;div class='brandFallback'&gt;Tamil&lt;br&gt;Kidszona&lt;small&gt;Official&lt;/small&gt;&lt;/div&gt;;"
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEhy4e7nfv_J-UxCjv-b8bY9ZOkH3x-0-_tPsfU3I06TdnbN6ZIXAVj9hSrkQ4cO3ZLmV1_sXu6HQKs2amjxLjtrj7ToBSTxHK4kIPnWzbo0B_VjOgMbJH42u0quQwE-gxxcXFclK88lgGB4NXmEX5gzMfVxAANbEO5KCMo333ViQY4PdYvDPabpIJW8-Bg=s16000" />
     </div>
 
     <!-- ICON GRID -->
     <section class="grid">
-<!-- TELEGRAM -->
+      <!-- TELEGRAM -->
       <a class="tile" href="https://t.me/your_channel" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="Telegram" onerror="this.remove(); this.parentElement.textContent='TG';" src="https://blogger.googleusercontent.com/img/a/AVvXsEiQglpgfTOAzNUmTYovAV9038-x9elkCqOTsG1Zovpve20jCCGC7p2FuftAKBRyuMUzB4QuBs63h1BDY0y5_t-GGkCBLxur5bxZocfOrE2tMGzPZDm5BnhdP2odYCK-147wW5tp6gQPeyZ5iuUaLgwTe9YGL-m3JC3VWJxoRA-o1D1bJIakXVfmwXsGcls=s16000" />
+          <img alt="Telegram" onerror="this.remove(); this.parentElement.textContent='TG';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEiQglpgfTOAzNUmTYovAV9038-x9elkCqOTsG1Zovpve20jCCGC7p2FuftAKBRyuMUzB4QuBs63h1BDY0y5_t-GGkCBLxur5bxZocfOrE2tMGzPZDm5BnhdP2odYCK-147wW5tp6gQPeyZ5iuUaLgwTe9YGL-m3JC3VWJxoRA-o1D1bJIakXVfmwXsGcls=s16000" />
         </div>
         <div class="label">Telegram Channel</div>
       </a>
@@ -155,7 +166,8 @@
       <!-- YOUTUBE -->
       <a class="tile" href="https://youtube.com/@yourchannel" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="YouTube" onerror="this.remove(); this.parentElement.textContent='YT';" src="https://blogger.googleusercontent.com/img/a/AVvXsEh0K1JrIAcmJlcoACPOsmnBZlP97F56IV9jKhq9gVK-x-74VBdzX9MR6xD0VEGGBkmkhpHg0BaNJcmj9X8aJjK6gPv94HbP-CRzSDOL6GikVJvInCEs_kANDJ10udY7rLj8_3vEwUAPdXFg9ynKne8v0918vApn5BcNdWhHmuzUQyoWbmV2G6E3W4nyU2I=s16000" />
+          <img alt="YouTube" onerror="this.remove(); this.parentElement.textContent='YT';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEh0K1JrIAcmJlcoACPOsmnBZlP97F56IV9jKhq9gVK-x-74VBdzX9MR6xD0VEGGBkmkhpHg0BaNJcmj9X8aJjK6gPv94HbP-CRzSDOL6GikVJvInCEs_kANDJ10udY7rLj8_3vEwUAPdXFg9ynKne8v0918vApn5BcNdWhHmuzUQyoWbmV2G6E3W4nyU2I=s16000" />
         </div>
         <div class="label">YouTube Channel</div>
       </a>
@@ -163,7 +175,8 @@
       <!-- INSTAGRAM -->
       <a class="tile" href="https://instagram.com/yourpage" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="Instagram" onerror="this.remove(); this.parentElement.textContent='IG';" src="https://blogger.googleusercontent.com/img/a/AVvXsEiTdlaXdn8h4tR3bpBnmEQk4BPzyDoYX2W_ZIUJI48gBvpHuPwoFx2DiekSOAMf18s7THsVMXdsoC3uENVDgRNOTT-6ygO2XUAheM0LsXE7Z6dxjKqmgImR96RnbEWWUj8_u6MpjqStZyC6uZ4Tf2YBqatOvbyc2jn9oaB05sUeJYA0CsyPLSWcXvY_BDg=s16000" />
+          <img alt="Instagram" onerror="this.remove(); this.parentElement.textContent='IG';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEiTdlaXdn8h4tR3bpBnmEQk4BPzyDoYX2W_ZIUJI48gBvpHuPwoFx2DiekSOAMf18s7THsVMXdsoC3uENVDgRNOTT-6ygO2XUAheM0LsXE7Z6dxjKqmgImR96RnbEWWUj8_u6MpjqStZyC6uZ4Tf2YBqatOvbyc2jn9oaB05sUeJYA0CsyPLSWcXvY_BDg=s16000" />
         </div>
         <div class="label">Instagram Page</div>
       </a>
@@ -171,7 +184,8 @@
       <!-- FACEBOOK -->
       <a class="tile" href="https://facebook.com/yourpage" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="Facebook" onerror="this.remove(); this.parentElement.textContent='FB';" src="https://blogger.googleusercontent.com/img/a/AVvXsEjDhoa-qPpHzbMV9uCAVEXfYk61wHUNUbCeB_rx3rBmUiczktKNqulQrEsgSjNFRZiqtoy9klXqsuMOfK8w5tukZuGnTMSClv0HKo53gQdJJX8LhFdeGDMJRopyt6L8L1EmpZqC8f8dl77mC2n-tC9LcrKKNRR7cVWxjWfDtt0rFQvLPJuNKs-7TtbUEo4=s16000" />
+          <img alt="Facebook" onerror="this.remove(); this.parentElement.textContent='FB';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEjDhoa-qPpHzbMV9uCAVEXfYk61wHUNUbCeB_rx3rBmUiczktKNqulQrEsgSjNFRZiqtoy9klXqsuMOfK8w5tukZuGnTMSClv0HKo53gQdJJX8LhFdeGDMJRopyt6L8L1EmpZqC8f8dl77mC2n-tC9LcrKKNRR7cVWxjWfDtt0rFQvLPJuNKs-7TtbUEo4=s16000" />
         </div>
         <div class="label">Facebook Page</div>
       </a>
@@ -179,7 +193,8 @@
       <!-- WHATSAPP -->
       <a class="tile" href="https://wa.me/91XXXXXXXXXX" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="WhatsApp" onerror="this.remove(); this.parentElement.textContent='WA';" src="https://blogger.googleusercontent.com/img/a/AVvXsEjH_sJ791UsE1GIMxaVayU0fkmkZ3qIwZ2P5gW4MQSpSbskYC6SBbnAQSzngAmfop51mV8Lg_AGbW-Z9HcXRY1FqLrmbcRuvkQq3owJrwVdu-gc-xGj87f6w6nDRGndWHVx7Lv0i2T7MB7jhB7VIfgyiD-fI1UKTXileyc7y-HhuemPg28DH4HHCV8AQ_w=s16000" />
+          <img alt="WhatsApp" onerror="this.remove(); this.parentElement.textContent='WA';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEjH_sJ791UsE1GIMxaVayU0fkmkZ3qIwZ2P5gW4MQSpSbskYC6SBbnAQSzngAmfop51mV8Lg_AGbW-Z9HcXRY1FqLrmbcRuvkQq3owJrwVdu-gc-xGj87f6w6nDRGndWHVx7Lv0i2T7MB7jhB7VIfgyiD-fI1UKTXileyc7y-HhuemPg28DH4HHCV8AQ_w=s16000" />
         </div>
         <div class="label">WhatsApp</div>
       </a>
@@ -187,7 +202,8 @@
       <!-- THREADS -->
       <a class="tile" href="https://www.threads.net/@yourhandle" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="Threads" onerror="this.remove(); this.parentElement.textContent='TH';" src="https://blogger.googleusercontent.com/img/a/AVvXsEjeLMjspnPfLo6fg2fAK6A7JApHLwnBhgBc6JUd2Hymoyn4pNDVa8BwE1aIbWpgLtlf-RHiGMiPqeSx5FVd7AoaZZkyAGk5F4IjU7q04koap5jLM87kd_XEoi2vOoMSMW8CYpnol1PF04t_605Iglm3im4ollPnIzjxjbDNaB-rVW-jC-uc06iIk6xTO60=s16000" />
+          <img alt="Threads" onerror="this.remove(); this.parentElement.textContent='TH';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEjeLMjspnPfLo6fg2fAK6A7JApHLwnBhgBc6JUd2Hymoyn4pNDVa8BwE1aIbWpgLtlf-RHiGMiPqeSx5FVd7AoaZZkyAGk5F4IjU7q04koap5jLM87kd_XEoi2vOoMSMW8CYpnol1PF04t_605Iglm3im4ollPnIzjxjbDNaB-rVW-jC-uc06iIk6xTO60=s16000" />
         </div>
         <div class="label">Threads</div>
       </a>
@@ -195,7 +211,8 @@
       <!-- SHARECHAT -->
       <a class="tile" href="https://sharechat.com/profile/yourprofile" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="ShareChat" onerror="this.remove(); this.parentElement.textContent='SC';" src="https://blogger.googleusercontent.com/img/a/AVvXsEifke6cpzxaSOSwUWMW4qZU0gulXcqypV4oV8Sat49nR-PGBFTplsl8xfXg-qwMcL7cKLgFtIQIKk89HazxkfKIh3EMO1ajQMvNbF4KXpLFyWmdpvWVX7ViEl8OWxPsphIzUSXzs9D_92ODu-I-tPeDlE3l8GSwaHyaGt0UsgeYX3nxb3BHyclbaFgPwtE=s16000" />
+          <img alt="ShareChat" onerror="this.remove(); this.parentElement.textContent='SC';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEifke6cpzxaSOSwUWMW4qZU0gulXcqypV4oV8Sat49nR-PGBFTplsl8xfXg-qwMcL7cKLgFtIQIKk89HazxkfKIh3EMO1ajQMvNbF4KXpLFyWmdpvWVX7ViEl8OWxPsphIzUSXzs9D_92ODu-I-tPeDlE3l8GSwaHyaGt0UsgeYX3nxb3BHyclbaFgPwtE=s16000" />
         </div>
         <div class="label">ShareChat</div>
       </a>
@@ -203,25 +220,26 @@
       <!-- PINTEREST -->
       <a class="tile" href="https://pinterest.com/yourpage" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="Pinterest" onerror="this.remove(); this.parentElement.textContent='PT';" src="https://blogger.googleusercontent.com/img/a/AVvXsEgoB55lwj-4wxz1IioDP62KvzTQMuRkN7xT7VxQRhv2KHrBlccdT7H_4AevWv5PTnA3G953iqYaSiTxJgJ2UBMdaKooLByfs7V_AQs7Ctp6el3eSWMDRC7Hbx86-ZRm1oJshbl34pEXnol2NfuqSk3QVn5C5MXb2EkADv1HlH13fO-gg2LbWHWWonYO080=s16000" />
+          <img alt="Pinterest" onerror="this.remove(); this.parentElement.textContent='PT';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEgoB55lwj-4wxz1IioDP62KvzTQMuRkN7xT7VxQRhv2KHrBlccdT7H_4AevWv5PTnA3G953iqYaSiTxJgJ2UBMdaKooLByfs7V_AQs7Ctp6el3eSWMDRC7Hbx86-ZRm1oJshbl34pEXnol2NfuqSk3QVn5C5MXb2EkADv1HlH13fO-gg2LbWHWWonYO080=s16000" />
         </div>
         <div class="label">Pinterest Page</div>
       </a>
-<!-- X / TWITTER -->
+
+      <!-- X / TWITTER -->
       <a class="tile" href="https://x.com/yourhandle" rel="noopener" target="_blank">
         <div class="circle">
-          <img alt="X" onerror="this.remove(); this.parentElement.textContent='X';" src="https://blogger.googleusercontent.com/img/a/AVvXsEg1VaXvKgGduJeJRGWO1hgB-glRuNY70a8kqUmtJq909j6_1eSSHR8AOAHVudxJz7MUls8W_nU_T3J5GMwpnXzzreXNjeKcn7Ap4sy7MMneaq3ZfIv2egcLlGP24hSaITGdG7sR_kxGcTr43Gpdmg1sjDAK446_x6dyV1_7wOZz6_ElYvXQYKaXQKe1XEM=s16000" />
+          <img alt="X" onerror="this.remove(); this.parentElement.textContent='X';"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEg1VaXvKgGduJeJRGWO1hgB-glRuNY70a8kqUmtJq909j6_1eSSHR8AOAHVudxJz7MUls8W_nU_T3J5GMwpnXzzreXNjeKcn7Ap4sy7MMneaq3ZfIv2egcLlGP24hSaITGdG7sR_kxGcTr43Gpdmg1sjDAK446_x6dyV1_7wOZz6_ElYvXQYKaXQKe1XEM=s16000" />
         </div>
         <div class="label">X (Twitter)</div>
       </a>
 
-      <!-- MORE (NOW IN CENTER / REPLACES CONTACT) -->
-      <!-- Put your "all links" page or second page link here -->
+      <!-- MORE -->
       <a class="tile centerOnly" href="https://example.com" rel="noopener" target="_blank">
         <div class="circle">+</div>
         <div class="label">More</div>
       </a>
-
     </section>
 
     <div class="footer">© <span id="y"></span> Tamil Kidszona • All links in one place</div>
@@ -229,6 +247,18 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    /* ✅ Extra: block Ctrl + wheel zoom on desktop */
+    window.addEventListener('wheel', function(e){
+      if (e.ctrlKey) e.preventDefault();
+    }, { passive: false });
+
+    /* ✅ Extra: block keyboard zoom shortcuts */
+    window.addEventListener('keydown', function(e){
+      if ((e.ctrlKey || e.metaKey) && ['+','-','=','0'].includes(e.key)) {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
