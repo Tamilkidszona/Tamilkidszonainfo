@@ -1,318 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-
-  <!-- Best possible zoom control (pinch may still work on some Android) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tamil Kidszona | Links</title>
-  <meta name="description" content="Tamil Kidszona - Official Social Links" />
 
   <style>
-    :root{
-      --bg:#000;
-      --white:#fff;
-      --muted: rgba(255,255,255,.72);
-      --ring: 4px;
+    /* 1. DISABLE ZOOM & BASIC SETUP */
+    html, body {
+      touch-action: pan-x pan-y;
+      overflow-x: hidden;
     }
-
-    *{ box-sizing:border-box; }
-
-    html, body{
-      width:100%;
-      overflow-x:hidden;           /* ✅ no right-side cut */
-      touch-action: manipulation;  /* ✅ reduces double-tap zoom */
-    }
-
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(circle at top, #0f0f0f 0%, var(--bg) 65%);
-      color: var(--white);
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      padding: 14px 12px 40px;
-    }
-
-    .wrap{
-      width:min(980px,100%);
-      text-align:center;
-      padding-top: 310px; /* ✅ space for fixed logo */
-    }
-
-    /* ✅ Logo fixed TOP CENTER (always) */
-    .brand{
-      width: 240px;
-      height: 240px;
-
-      position: fixed;
-      top: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      z-index: 9999;
+    body {
       margin: 0;
-
-      border-radius: 999px;
-      border: 4px solid #ffffff;
-      background: rgba(255,255,255,.02);
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
+      padding: 20px 10px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #0f0f0f 0%, #000000 65%);
+      color: #ffffff !important;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .brand img{
-      width:100%;
-      height:100%;
-      object-fit: contain;
-      display:block;
-    }
-
-    .brandFallback{
-      font-weight: 900;
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-    }
-    .brandFallback small{
-      display:block;
-      font-size: 16px;
-      margin-top: 10px;
-      letter-spacing: 1px;
-      opacity: .9;
-    }
-
-    /* ✅ 3 icons per row + prevent overflow on mobile */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      justify-items:center;
-      align-items:start;
-      padding: 0;
-    }
-
-    .tile{
+    .wrap {
       width: 100%;
-      max-width: 230px;
-      text-decoration:none;
-      color: var(--white);
-      display:block;
-      border-radius: 18px;
-      padding: 10px 8px;
-      transition: transform .15s ease, background .15s ease;
-      cursor:pointer;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Hover only helps desktop; on mobile it can feel weird */
-    @media (hover:hover){
-      .tile:hover{
-        transform: translateY(-2px);
-        background: rgba(255,255,255,.04);
+    /* --- ANIMATION KEYFRAMES (The "Video" Glow Effect) --- */
+    @keyframes videoGlow {
+      0% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+      }
+      50% {
+        filter: drop-shadow(0 0 25px rgba(255, 255, 255, 1.0)); /* Brightest point */
+      }
+      100% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
       }
     }
 
-    .circle{
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-      border-radius: 999px;
-      border: 4px solid #ffffff !important;
-      background: #000;
+    /* --- LOGO --- */
+    .brand {
+      width: 160px;
+      height: auto;
+      border: none !important;
+      border-radius: 0;
+      background: transparent;
+      
+      /* ONE LINE GAP SETTING */
+      margin-bottom: 15px; 
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* APPLY THE ANIMATION HERE */
+      animation: videoGlow 2s infinite ease-in-out;
+    }
+    .brand img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* --- WELCOME TEXT --- */
+    .welcome-text {
+      color: #ffffff !important;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 800;          /* Extra Bold */
+      text-transform: uppercase; /* All Caps */
+      letter-spacing: 1px;
+      
+      margin-top: 0;            /* No extra space above */
+      margin-bottom: 40px;
+      max-width: 90%;
+      opacity: 0.95;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    /* GRID SYSTEM */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      justify-items: center;
+    }
+
+    /* LINKS & TILES */
+    a.tile {
+      text-decoration: none !important;
+      color: #ffffff !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* CIRCLE ICONS */
+    .circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #ffffff !important;
       overflow: hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 900;
-      font-size: 40px;
+      margin-bottom: 10px;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff !important;
     }
-
-    .circle img{
-      width:100%;
-      height:100%;
+    .circle img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      display:block;
     }
 
-    .label{
-      margin-top: 12px;
-      font-weight: 900;
-      letter-spacing: .7px;
-      font-size: 14px;
+    .label {
+      font-size: 11px;
+      font-weight: bold;
       text-transform: uppercase;
-      line-height: 1.2;
+      text-align: center;
+      letter-spacing: 0.5px;
+      color: #ffffff !important;
     }
 
-    .footer{
-      margin-top: 28px;
+    .footer {
+      margin-top: 40px;
       font-size: 12px;
-      color: rgba(255,255,255,.55);
+      color: #888;
+      text-align: center;
     }
 
-    /* ✅ MOBILE: make everything smaller so full page fits (no “zoomed in”) */
-    @media (max-width: 520px){
-      body{ padding: 12px 10px 30px; }
-
-      .brand{
-        width: 170px;
-        height: 170px;
-        top: 10px;
-        border-width: 4px;
-      }
-
-      .wrap{ padding-top: 230px; }
-
-      .grid{ gap: 14px; }
-
-      .circle{
-        width: 92px;
-        height: 92px;
-        border-width: 3px !important;
-      }
-
-      .tile{
-        padding: 6px 2px;
-        max-width: none;
-      }
-
-      .label{
-        font-size: 11px;
-        letter-spacing: .4px;
-      }
+    /* Center the last item */
+    .tile:last-child {
+       grid-column: 2; 
     }
 
-    /* Center last row if only 1 item */
-    .tile.centerOnly{
-      grid-column: 2 / 3;
-    }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
 
-    <!-- TOP LOGO -->
+  <div class="wrap">
+    
     <div class="brand">
-      <img
-        alt="Tamil Kidszona Logo"
-        src="https://blogger.googleusercontent.com/img/a/AVvXsEhy4e7nfv_J-UxCjv-b8bY9ZOkH3x-0-_tPsfU3I06TdnbN6ZIXAVj9hSrkQ4cO3ZLmV1_sXu6HQKs2amjxLjtrj7ToBSTxHK4kIPnWzbo0B_VjOgMbJH42u0quQwE-gxxcXFclK88lgGB4NXmEX5gzMfVxAANbEO5KCMo333ViQY4PdYvDPabpIJW8-Bg=s16000"
-        onerror="this.remove(); this.parentElement.innerHTML='<div class=&quot;brandFallback&quot;>Tamil<br>Kidszona<small>Official</small></div>';"
-      />
+      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhy4e7nfv_J-UxCjv-b8bY9ZOkH3x-0-_tPsfU3I06TdnbN6ZIXAVj9hSrkQ4cO3ZLmV1_sXu6HQKs2amjxLjtrj7ToBSTxHK4kIPnWzbo0B_VjOgMbJH42u0quQwE-gxxcXFclK88lgGB4NXmEX5gzMfVxAANbEO5KCMo333ViQY4PdYvDPabpIJW8-Bg=s16000" alt="Logo">
     </div>
 
-    <!-- ICON GRID -->
-    <section class="grid">
+    <div class="welcome-text">
+      Welcome to our website and Thank you for supporting our Tamil Kidszona
+    </div>
 
-      <a class="tile" href="https://t.me/your_channel" rel="noopener" target="_blank">
+    <div class="grid">
+
+      <a class="tile" href="https://t.me/your_channel" style="color:#fff!important">
         <div class="circle">
-          <img alt="Telegram"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEiQglpgfTOAzNUmTYovAV9038-x9elkCqOTsG1Zovpve20jCCGC7p2FuftAKBRyuMUzB4QuBs63h1BDY0y5_t-GGkCBLxur5bxZocfOrE2tMGzPZDm5BnhdP2odYCK-147wW5tp6gQPeyZ5iuUaLgwTe9YGL-m3JC3VWJxoRA-o1D1bJIakXVfmwXsGcls=s16000"
-               onerror="this.remove(); this.parentElement.textContent='TG';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiQglpgfTOAzNUmTYovAV9038-x9elkCqOTsG1Zovpve20jCCGC7p2FuftAKBRyuMUzB4QuBs63h1BDY0y5_t-GGkCBLxur5bxZocfOrE2tMGzPZDm5BnhdP2odYCK-147wW5tp6gQPeyZ5iuUaLgwTe9YGL-m3JC3VWJxoRA-o1D1bJIakXVfmwXsGcls=s16000">
         </div>
-        <div class="label">Telegram Channel</div>
+        <div class="label">Telegram</div>
       </a>
 
-      <a class="tile" href="https://youtube.com/@yourchannel" rel="noopener" target="_blank">
+      <a class="tile" href="https://youtube.com/@yourchannel" style="color:#fff!important">
         <div class="circle">
-          <img alt="YouTube"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEh0K1JrIAcmJlcoACPOsmnBZlP97F56IV9jKhq9gVK-x-74VBdzX9MR6xD0VEGGBkmkhpHg0BaNJcmj9X8aJjK6gPv94HbP-CRzSDOL6GikVJvInCEs_kANDJ10udY7rLj8_3vEwUAPdXFg9ynKne8v0918vApn5BcNdWhHmuzUQyoWbmV2G6E3W4nyU2I=s16000"
-               onerror="this.remove(); this.parentElement.textContent='YT';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh0K1JrIAcmJlcoACPOsmnBZlP97F56IV9jKhq9gVK-x-74VBdzX9MR6xD0VEGGBkmkhpHg0BaNJcmj9X8aJjK6gPv94HbP-CRzSDOL6GikVJvInCEs_kANDJ10udY7rLj8_3vEwUAPdXFg9ynKne8v0918vApn5BcNdWhHmuzUQyoWbmV2G6E3W4nyU2I=s16000">
         </div>
-        <div class="label">YouTube Channel</div>
+        <div class="label">YouTube</div>
       </a>
 
-      <a class="tile" href="https://instagram.com/yourpage" rel="noopener" target="_blank">
+      <a class="tile" href="https://instagram.com/yourpage" style="color:#fff!important">
         <div class="circle">
-          <img alt="Instagram"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEiTdlaXdn8h4tR3bpBnmEQk4BPzyDoYX2W_ZIUJI48gBvpHuPwoFx2DiekSOAMf18s7THsVMXdsoC3uENVDgRNOTT-6ygO2XUAheM0LsXE7Z6dxjKqmgImR96RnbEWWUj8_u6MpjqStZyC6uZ4Tf2YBqatOvbyc2jn9oaB05sUeJYA0CsyPLSWcXvY_BDg=s16000"
-               onerror="this.remove(); this.parentElement.textContent='IG';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiTdlaXdn8h4tR3bpBnmEQk4BPzyDoYX2W_ZIUJI48gBvpHuPwoFx2DiekSOAMf18s7THsVMXdsoC3uENVDgRNOTT-6ygO2XUAheM0LsXE7Z6dxjKqmgImR96RnbEWWUj8_u6MpjqStZyC6uZ4Tf2YBqatOvbyc2jn9oaB05sUeJYA0CsyPLSWcXvY_BDg=s16000">
         </div>
-        <div class="label">Instagram Page</div>
+        <div class="label">Instagram</div>
       </a>
 
-      <a class="tile" href="https://facebook.com/yourpage" rel="noopener" target="_blank">
+      <a class="tile" href="https://facebook.com/yourpage" style="color:#fff!important">
         <div class="circle">
-          <img alt="Facebook"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEjDhoa-qPpHzbMV9uCAVEXfYk61wHUNUbCeB_rx3rBmUiczktKNqulQrEsgSjNFRZiqtoy9klXqsuMOfK8w5tukZuGnTMSClv0HKo53gQdJJX8LhFdeGDMJRopyt6L8L1EmpZqC8f8dl77mC2n-tC9LcrKKNRR7cVWxjWfDtt0rFQvLPJuNKs-7TtbUEo4=s16000"
-               onerror="this.remove(); this.parentElement.textContent='FB';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjDhoa-qPpHzbMV9uCAVEXfYk61wHUNUbCeB_rx3rBmUiczktKNqulQrEsgSjNFRZiqtoy9klXqsuMOfK8w5tukZuGnTMSClv0HKo53gQdJJX8LhFdeGDMJRopyt6L8L1EmpZqC8f8dl77mC2n-tC9LcrKKNRR7cVWxjWfDtt0rFQvLPJuNKs-7TtbUEo4=s16000">
         </div>
-        <div class="label">Facebook Page</div>
+        <div class="label">Facebook</div>
       </a>
 
-      <a class="tile" href="https://wa.me/91XXXXXXXXXX" rel="noopener" target="_blank">
+      <a class="tile" href="https://wa.me/91XXXXXXXXXX" style="color:#fff!important">
         <div class="circle">
-          <img alt="WhatsApp"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEjH_sJ791UsE1GIMxaVayU0fkmkZ3qIwZ2P5gW4MQSpSbskYC6SBbnAQSzngAmfop51mV8Lg_AGbW-Z9HcXRY1FqLrmbcRuvkQq3owJrwVdu-gc-xGj87f6w6nDRGndWHVx7Lv0i2T7MB7jhB7VIfgyiD-fI1UKTXileyc7y-HhuemPg28DH4HHCV8AQ_w=s16000"
-               onerror="this.remove(); this.parentElement.textContent='WA';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjH_sJ791UsE1GIMxaVayU0fkmkZ3qIwZ2P5gW4MQSpSbskYC6SBbnAQSzngAmfop51mV8Lg_AGbW-Z9HcXRY1FqLrmbcRuvkQq3owJrwVdu-gc-xGj87f6w6nDRGndWHVx7Lv0i2T7MB7jhB7VIfgyiD-fI1UKTXileyc7y-HhuemPg28DH4HHCV8AQ_w=s16000">
         </div>
         <div class="label">WhatsApp</div>
       </a>
 
-      <a class="tile" href="https://www.threads.net/@yourhandle" rel="noopener" target="_blank">
+      <a class="tile" href="https://www.threads.net/@yourhandle" style="color:#fff!important">
         <div class="circle">
-          <img alt="Threads"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEjeLMjspnPfLo6fg2fAK6A7JApHLwnBhgBc6JUd2Hymoyn4pNDVa8BwE1aIbWpgLtlf-RHiGMiPqeSx5FVd7AoaZZkyAGk5F4IjU7q04koap5jLM87kd_XEoi2vOoMSMW8CYpnol1PF04t_605Iglm3im4ollPnIzjxjbDNaB-rVW-jC-uc06iIk6xTO60=s16000"
-               onerror="this.remove(); this.parentElement.textContent='TH';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjeLMjspnPfLo6fg2fAK6A7JApHLwnBhgBc6JUd2Hymoyn4pNDVa8BwE1aIbWpgLtlf-RHiGMiPqeSx5FVd7AoaZZkyAGk5F4IjU7q04koap5jLM87kd_XEoi2vOoMSMW8CYpnol1PF04t_605Iglm3im4ollPnIzjxjbDNaB-rVW-jC-uc06iIk6xTO60=s16000">
         </div>
         <div class="label">Threads</div>
       </a>
-
-      <a class="tile" href="https://sharechat.com/profile/yourprofile" rel="noopener" target="_blank">
+      
+       <a class="tile" href="#" style="color:#fff!important">
         <div class="circle">
-          <img alt="ShareChat"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEifke6cpzxaSOSwUWMW4qZU0gulXcqypV4oV8Sat49nR-PGBFTplsl8xfXg-qwMcL7cKLgFtIQIKk89HazxkfKIh3EMO1ajQMvNbF4KXpLFyWmdpvWVX7ViEl8OWxPsphIzUSXzs9D_92ODu-I-tPeDlE3l8GSwaHyaGt0UsgeYX3nxb3BHyclbaFgPwtE=s16000"
-               onerror="this.remove(); this.parentElement.textContent='SC';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEifke6cpzxaSOSwUWMW4qZU0gulXcqypV4oV8Sat49nR-PGBFTplsl8xfXg-qwMcL7cKLgFtIQIKk89HazxkfKIh3EMO1ajQMvNbF4KXpLFyWmdpvWVX7ViEl8OWxPsphIzUSXzs9D_92ODu-I-tPeDlE3l8GSwaHyaGt0UsgeYX3nxb3BHyclbaFgPwtE=s16000" />
         </div>
         <div class="label">ShareChat</div>
       </a>
 
-      <a class="tile" href="https://pinterest.com/yourpage" rel="noopener" target="_blank">
+       <a class="tile" href="#" style="color:#fff!important">
         <div class="circle">
-          <img alt="Pinterest"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEgoB55lwj-4wxz1IioDP62KvzTQMuRkN7xT7VxQRhv2KHrBlccdT7H_4AevWv5PTnA3G953iqYaSiTxJgJ2UBMdaKooLByfs7V_AQs7Ctp6el3eSWMDRC7Hbx86-ZRm1oJshbl34pEXnol2NfuqSk3QVn5C5MXb2EkADv1HlH13fO-gg2LbWHWWonYO080=s16000"
-               onerror="this.remove(); this.parentElement.textContent='PT';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgoB55lwj-4wxz1IioDP62KvzTQMuRkN7xT7VxQRhv2KHrBlccdT7H_4AevWv5PTnA3G953iqYaSiTxJgJ2UBMdaKooLByfs7V_AQs7Ctp6el3eSWMDRC7Hbx86-ZRm1oJshbl34pEXnol2NfuqSk3QVn5C5MXb2EkADv1HlH13fO-gg2LbWHWWonYO080=s16000" />
         </div>
-        <div class="label">Pinterest Page</div>
+        <div class="label">Pinterest</div>
       </a>
-
-      <a class="tile" href="https://x.com/yourhandle" rel="noopener" target="_blank">
+      
+       <a class="tile" href="#" style="color:#fff!important">
         <div class="circle">
-          <img alt="X"
-               src="https://blogger.googleusercontent.com/img/a/AVvXsEg1VaXvKgGduJeJRGWO1hgB-glRuNY70a8kqUmtJq909j6_1eSSHR8AOAHVudxJz7MUls8W_nU_T3J5GMwpnXzzreXNjeKcn7Ap4sy7MMneaq3ZfIv2egcLlGP24hSaITGdG7sR_kxGcTr43Gpdmg1sjDAK446_x6dyV1_7wOZz6_ElYvXQYKaXQKe1XEM=s16000"
-               onerror="this.remove(); this.parentElement.textContent='X';" />
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg1VaXvKgGduJeJRGWO1hgB-glRuNY70a8kqUmtJq909j6_1eSSHR8AOAHVudxJz7MUls8W_nU_T3J5GMwpnXzzreXNjeKcn7Ap4sy7MMneaq3ZfIv2egcLlGP24hSaITGdG7sR_kxGcTr43Gpdmg1sjDAK446_x6dyV1_7wOZz6_ElYvXQYKaXQKe1XEM=s16000" />
         </div>
         <div class="label">X (Twitter)</div>
       </a>
 
-      <a class="tile centerOnly" href="https://example.com" rel="noopener" target="_blank">
-        <div class="circle">+</div>
+      <a class="tile" href="https://example.com" style="color:#fff!important;">
+        <div class="circle" style="
+          font-size: 50px; 
+          line-height: 1; 
+          padding-bottom: 8px; 
+          border: 3px solid #ffffff !important; 
+          color: #ffffff !important;">+</div>
         <div class="label">More</div>
       </a>
 
-    </section>
+    </div>
 
-    <div class="footer">© <span id="y"></span> Tamil Kidszona • All links in one place</div>
-  </main>
+    <div class="footer">© 2026 Tamil Kidszona</div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  </div>
 
-    // prevent Ctrl + wheel zoom on desktop
-    window.addEventListener('wheel', function(e){
-      if (e.ctrlKey) e.preventDefault();
-    }, { passive: false });
-
-    // prevent keyboard zoom shortcuts
-    window.addEventListener('keydown', function(e){
-      if ((e.ctrlKey || e.metaKey) && ['+','-','=','0'].includes(e.key)) {
-        e.preventDefault();
-      }
-    });
-  </script>
 </body>
 </html>
