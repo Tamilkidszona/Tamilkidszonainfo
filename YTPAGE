@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tamil Kidszona | Our Channels</title>
+
+  <style>
+    /* BASIC SETUP */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #0f0f0f 0%, #000000 90%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* FALLING STARS EFFECT */
+    .star-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .falling-star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10vh) scale(0); opacity: 0; }
+      10% { opacity: 1; transform: translateY(0vh) scale(1); }
+      100% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+    }
+
+    /* PAGE CONTENT */
+    .container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    /* CHANNEL SELECTION GRID */
+    .channel-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .channel-card {
+      text-decoration: none;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .channel-card:hover {
+      transform: scale(1.1);
+    }
+
+    .logo-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #ff0000; /* YouTube Red Border */
+      overflow: hidden;
+      background: #1a1a1a;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      margin-bottom: 15px;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .channel-name {
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .back-btn {
+      margin-top: 50px;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #444;
+      border-radius: 20px;
+      color: #888;
+      text-decoration: none;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="star-container" id="starContainer"></div>
+
+  <div class="container">
+    <h1>TWO YOUTUBE CHANNELS ARE AVILAVLE</h1>
+
+    <div class="channel-grid">
+      <a href="https://youtube.com/@dubakurvoicer7?si=34CvGwtUjXY4n_jB" class="channel-card">
+        <div class="logo-circle">
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh0K1JrIAcmJlcoACPOsmnBZlP97F56IV9jKhq9gVK-x-74VBdzX9MR6xD0VEGGBkmkhpHg0BaNJcmj9X8aJjK6gPv94HbP-CRzSDOL6GikVJvInCEs_kANDJ10udY7rLj8_3vEwUAPdXFg9ynKne8v0918vApn5BcNdWhHmuzUQyoWbmV2G6E3W4nyU2I=s16000" alt="Channel 1">
+        </div>
+        <div class="channel-name">DUBAKUR VOICER</div>
+      </a>
+
+      <a href="https://www.youtube.com/@Tamilkidszona" class="channel-card">
+        <div class="logo-circle">
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEidvOTkiQB27QgS9nDvGHamQm3uTbKsaJ0BuB7kCSZjhP4JtP_35R1yU8dqavKgZvKBh5ZuZx4OsmROeYtbpBF6EvSmIZ_QRHBwBoJINkZ6Psoc0oRomZpAU-uFGVVyEQX1cIxH7P8EI47PQetfzZ8V-_9FIG0CTLJRyax_QbND0yjwNJYvO5dl9N-bTlU=s16000" alt="Channel 2">
+        </div>
+        <div class="channel-name"> TAMIL KIDSZONA EDITS</div>
+      </a>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Links</a>
+  </div>
+
+  <script>
+    function createStar() {
+      const container = document.getElementById('starContainer');
+      const star = document.createElement('div');
+      const size = Math.random() * 3 + 2 + 'px';
+      const left = Math.random() * 100 + '%';
+      const duration = Math.random() * 3 + 2 + 's';
+      
+      star.classList.add('falling-star');
+      star.style.width = size;
+      star.style.height = size;
+      star.style.left = left;
+      star.style.animationDuration = duration;
+      
+      container.appendChild(star);
+      setTimeout(() => { star.remove(); }, parseFloat(duration) * 1000);
+    }
+    setInterval(createStar, 200);
+  </script>
+
+</body>
+</html>
