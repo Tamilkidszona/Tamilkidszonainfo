@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>About Me | Portfolio Links</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* 1. BASIC SETUP (Dark Interface) */
+    html, body {
+      touch-action: pan-x pan-y;
+      overflow-x: hidden;
+    }
+    body {
+      margin: 0;
+      padding: 40px 10px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #141624 0%, #000000 70%);
+      color: #ffffff !important;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    /* --- GENTLE & SLOW SNOW EFFECT --- */
+    .snow {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none; 
+      z-index: 0;
+      /* Much fewer snowflakes */
+      background-image:
+        radial-gradient(4px 4px at 10% 20%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(3px 3px at 30% 10%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(5px 5px at 25% 50%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(2px 2px at 80% 50%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(4px 4px at 70% 90%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 45% 25%, rgba(255,255,255,0.4), transparent);
+      /* Spread them out much wider */
+      background-size: 300px 300px; 
+      /* Greatly slowed down the speed (from 8s to 20s) */
+      animation: snowAnim 20s linear infinite;
+    }
+    .snow:after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: inherit;
+      background-size: 500px 500px; 
+      /* Much slower middle layer */
+      animation: snowAnim 35s linear infinite;
+      opacity: 0.5;
+    }
+    .snow:before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: inherit;
+      background-size: 800px 800px; 
+      /* Extremely slow background layer */
+      animation: snowAnim 50s linear infinite;
+      opacity: 0.3;
+    }
+    @keyframes snowAnim {
+      from { background-position: 0 0; }
+      to { background-position: 500px 1000px; }
+    }
+
+    /* --- CONTENT WRAPPER --- */
+    .wrap {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10; 
+      position: relative;
+    }
+
+    /* --- PROFILE IMAGE WITH WHITE CIRCLE --- */
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #ffffff !important; 
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
+      overflow: hidden;
+      margin-bottom: 25px;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* --- ABOUT ME TEXT --- */
+    .bio-box {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 90%;
+    }
+    .bio-box h1 {
+      font-size: 26px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 15px 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    .bio-box p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #cccccc !important;
+      margin: 0 0 15px 0;
+    }
+    .bio-box strong {
+      color: #ffffff !important;
+    }
+
+    /* --- CONTACT SECTION (Centered for 2 items) --- */
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px; 
+      width: 100%;
+    }
+
+    /* LINKS & TILES */
+    a.tile {
+      text-decoration: none !important;
+      color: #ffffff !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* CIRCLE ICONS */
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #ffffff !important;
+      margin-bottom: 10px;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px; 
+      transition: background 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    
+    /* Hover effect */
+    .tile:hover .circle {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="snow"></div>
+
+  <div class="wrap">
+    
+    <div class="profile-pic">
+      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhigpg1oHLbEgww_xNIxa64qMpKPOdCKVAyAo_rxvYF1yfRxLmiCxsTB-L0sAQymFKp84wtxCrC3WBpJAvXiAEgJbnEfz-kTr-5CgRmdyHTIketlbsN_Zjz0Xgi5xdCZNh5zbufSpM7_5PylSAJdhR1xQsYsIoH63xYET3SNkC2DO6pnZpVYF726VynPdQ=s16000" alt="Profile Picture">
+    </div>
+
+    <div class="bio-box">
+      <h1>KISSOKAR</h1>
+      <p>Kissokar is a digital creator, video editor, and the founder of Tamilkidszona. Known for his technical skills in post-production and digital design, he crafts highly engaging visual experiences. From seamless video cuts and audio syncing to creative photo manipulation, he knows exactly what it takes to hook an audience and deliver high-retention content <strong></strong> .</p>
+      <p><strong></strong> </p>
+    </div>
+
+    <div class="contact-container">
+      
+      <a class="tile" href="https://telegram.me/TamilKidszonabot" target="_blank">
+        <div class="circle"><i class="fa-brands fa-telegram"></i></div>
+        <div class="label">Telegram</div>
+      </a>
+
+      <a class="tile" href="#" target="_blank">
+        <div class="circle"><i class="fa-brands fa-linkedin-in"></i></div>
+        <div class="label">LinkedIn</div>
+      </a>
+
+    </div>
+
+    <div class="footer">© 2026 TAMILKIDSZONA</div>
+
+  </div>
+</body>
+</html>
